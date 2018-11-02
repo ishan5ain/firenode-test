@@ -34,6 +34,11 @@ app.get('/get', (req, res) => {
   var fireCol = [];
 
   docRef2.get().then(snapshot => {
+    if (!snapshot) {
+      console.log('Error: No Snapshot found');
+      return res.send('No Snapshot Found');
+    }
+
     snapshot.forEach(doc => {
       // console.log(doc.id, '=>', doc.data());
       var data = {
@@ -43,11 +48,12 @@ app.get('/get', (req, res) => {
       fireCol.push(data);
     });
 
-    console.log(JSON.stringify(fireCol, undefined, 2));
     res.send(JSON.stringify(fireCol, undefined, 2));
+    return JSON.stringify(fireCol, undefined, 2);
+  }).catch(err => {
+    console.log('Error getting documents', err);
+    res.send(err);
   });
-}, (e) => {
-  res.send(e);
 });
 
 
