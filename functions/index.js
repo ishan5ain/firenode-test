@@ -43,8 +43,8 @@ app.get('/get', (req, res) => {
       fireCol.push(data);
     });
 
-    console.log(JSON.stringify(fireCol, undefined, 2);
-    res.send(JSON.stringify(fireCol, undefined, 2);
+    console.log(JSON.stringify(fireCol, undefined, 2));
+    res.send(JSON.stringify(fireCol, undefined, 2));
   });
 }, (e) => {
   res.send(e);
