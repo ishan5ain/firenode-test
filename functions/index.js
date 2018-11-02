@@ -16,6 +16,7 @@ const app = express();
 // var d = new Date();
 // var date = d.getUTCDate();
 // console.log(date);
+
 var date = moment().format('MMDDYYYY');
 
 admin.initializeApp(functions.config().firebase);
